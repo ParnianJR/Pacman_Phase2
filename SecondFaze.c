@@ -19,7 +19,7 @@ void drawMap(int Map [COL][R]);
 void Move(int,Coord*, int Map[COL][R]);
 int main(){
 	char ans,c;
-	int i,j;
+	int i,j,flag=1;
 	Coord pacman={0,0};
 	int Map[COL][R];
 	FILE *ptf=fopen("C:\\LastProject\\Matrix2.txt","r");
@@ -39,8 +39,8 @@ int main(){
 					 3,3,3,3,3,3,0,3,3,3,
 					 3,3,3,3,3,2,3,3,3,0};*/
 drawMap(Map);
-while(1){
-	//drawMap(Map);
+while(flag){
+	flag=0;
 	gotoxy(pacman.x,pacman.y);
 	printf("%c",'S');
 	choice=scanChoice();
@@ -49,11 +49,27 @@ while(1){
 	if(choice){
 		Move(choice,&pacman,Map);
 	  }
+    if(choice==-1) break;
+	  gotoxy(pacman.x,pacman.y);
+	  for(i=0;i<COL;i++){
+	  	for(j=0;j<R;j++){
+	  		if(Map[i][j]==2){
+	  			flag=1;
+	  			break;
+			  }
+		  }
+	  }
     }
+    gotoxy(pacman.x,pacman.y);
+    printf("%c",'S');
+   // sleep(1);
+    gotoxy(0,11);
+    printf("FINISH:)");
 }
 int scanChoice(){
 	char ans;
 	ans=getch();
+	if(ans=='-') return -1;
 	switch(ans){
 		case 72:
 			return 1;
@@ -115,5 +131,6 @@ void Move(int choice,Coord *pacman,int Map[COL][R]){
 					pacman->x++;
 					break;
 		}
+	//	if(Map[pacman->y][pacman->x]==2) count++;
 		Map[pacman->y][pacman->x]=1;
 }
