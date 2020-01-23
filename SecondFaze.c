@@ -20,7 +20,7 @@ void Move(int,Coord*, int Map[COL][R]);
 int main(){
 	char ans,c;
 	int i,j,flag=1;
-	Coord pacman={0,0};
+	Coord pacman;
 	int Map[COL][R];
 	FILE *ptf=fopen("C:\\LastProject\\Matrix2.txt","r");
 	if(ptf!=NULL){
@@ -33,11 +33,14 @@ int main(){
 			}
 		}
 	}
-/*	int Map[COL][R]={1,3,3,2,3,0,0,3,3,0,
-					 3,3,3,3,3,3,0,3,3,3,
-					 3,3,3,2,3,3,3,3,3,3,
-					 3,3,3,3,3,3,0,3,3,3,
-					 3,3,3,3,3,2,3,3,3,0};*/
+for(i=0;i<COL;i++){
+	for(j=0;j<R;j++){
+		if(Map[i][j]==1){
+			pacman.x=j;
+			pacman.y=i;
+		}
+	}
+}
 drawMap(Map);
 while(flag){
 	flag=0;
