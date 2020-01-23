@@ -45,9 +45,11 @@ drawMap(Map);
 while(flag){
 	flag=0;
 	gotoxy(pacman.x,pacman.y);
+	 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_BLUE|BACKGROUND_RED|BACKGROUND_INTENSITY);
 	printf("%c",'S');
 	choice=scanChoice();
 	gotoxy(pacman.x,pacman.y);
+	 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),0);
 	printf(" ");
 	if(choice){
 		Move(choice,&pacman,Map);
@@ -67,6 +69,7 @@ while(flag){
     printf("%c",'S');
    // sleep(1);
     gotoxy(0,11);
+    	 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_GREEN);
     printf("FINISH:)");
 }
 int scanChoice(){
