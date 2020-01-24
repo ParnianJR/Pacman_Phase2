@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <windows.h>
-#define R 10
-#define COL 5
+#define R 12
+#define COL 7
 //1 pacman
 //2 food
 //0 block
@@ -21,12 +21,12 @@ int main(){
 	char ans,c;
 	int i,j,flag=1;
 	Coord pacman;
-	int Map[COL][R];
+	int Map[COL][R]={0};
 	FILE *ptf=fopen("C:\\LastProject\\Matrix2.txt","r");
 	if(ptf!=NULL){
 		while(feof(ptf)==0){
-			for(i=0;i<COL;i++){
-				for(j=0;j<R;j++){
+			for(i=1;i<COL-1;i++){
+				for(j=1;j<R-1;j++){
 					fscanf(ptf,"%d",&Map[i][j]);
 					fscanf(ptf,"%c",&c);
 				}
@@ -66,7 +66,7 @@ while(flag){
 	  }
     }
     gotoxy(pacman.x,pacman.y);
-    printf("%c",'S');
+    printf("%c",016);
    // sleep(1);
     gotoxy(0,11);
     	 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_GREEN);
