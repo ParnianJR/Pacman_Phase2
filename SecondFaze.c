@@ -46,7 +46,7 @@ while(flag){
 	flag=0;
 	gotoxy(pacman.x,pacman.y);
 	 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_BLUE|BACKGROUND_RED|BACKGROUND_INTENSITY);
-	printf("%c",'S');
+	printf("%c",016);
 	choice=scanChoice();
 	gotoxy(pacman.x,pacman.y);
 	 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),0);
@@ -103,10 +103,10 @@ void drawMap(int Map[COL][R]){
 		for(j=0;j<R;j++){
 			switch(Map [i][j]){
 				case 0:
-					block='*';
+					block=178;
 					break;
 				case 2:
-					block='.';
+					block=248;
 					break;
 				case 3:
 					block=' ';
