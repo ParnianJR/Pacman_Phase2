@@ -1,2 +1,2 @@
-# second_Phase
-This is the second phase of the pacman project(human player)
+# second_Phase of pacman project
+This is the second phase of final project of fundamentals of programming(human player)
